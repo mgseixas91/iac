@@ -1,0 +1,16 @@
+autoDiscovery:
+  clusterName: eks-poc-sensedia
+rbac:
+  serviceAccount:
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::577125335739:role/eks-poc-sensedia-autoscaler-controller-irsa
+awsRegion: us-east-1
+
+#helm repo add autoscaler https://kubernetes.github.io/autoscaler
+# helm repo update
+
+#helm upgrade --install \
+#  cluster-autoscaler \
+#  autoscaler/cluster-autoscaler \
+#  --namespace kube-system \
+#  -f values.yaml

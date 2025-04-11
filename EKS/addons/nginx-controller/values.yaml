@@ -1,0 +1,34 @@
+controller:
+  ingressClassByName: true
+  ingressClassResource:
+    name: nginx-poc-sensedia
+    enabled: true
+    default: true
+    controllerValue: "k8s.io/nginx-poc-sensedia"
+  service:
+    external:
+      enabled: true
+    internal:
+      enabled: false
+      annotations:
+        service.beta.kubernetes.io/aws-load-balancer-internal: "false"
+        service.beta.kubernetes.io/aws-load-balancer-name: "nginx-poc-sensedia-load-balancer"
+        service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+        service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+        service.beta.kubernetes.io/aws-load-balancer-type: nlb
+        service.beta.kubernetes.io/aws-load-balancer-subnets: "subnet-071d0a1ac89f94fc4, subnet-0b69d19fab80e6e9e"
+        service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: "Name=nginx-poc-sensedia-load-balancer"
+fullnameOverride: nginx-controller
+
+# Adicionar o repositório do Nginx Ingress Controller
+
+# helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+# helm repo update
+
+# Nginx Ingress Controller Chart
+
+# helm upgrade --install nginx-private \
+# ingress-nginx/ingress-nginx \
+# --namespace nginx-controller \
+# -f values.yaml \
+# --create-namespace
