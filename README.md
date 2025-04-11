@@ -88,7 +88,7 @@ Utilizei a versão `5.20.0` do provider AWS, pois essa versão oferece suporte m
 - **security_group_additional_rules**: regras para comunicação entre nodes e cluster.
 - **eks_managed_node_groups**: cria o nodegroup com instâncias `t3.micro`.
 - **auth configmap**: está gerenciado via Terraform, mas não foi adicionado nenhum usuário.
-- **IRSA habilitado**: integra roles do IAM a service accounts no K8s.
+- **IRSA habilitado**: integra roles do IAM a service accounts no K8s. - Solicitado no documento.
 
 ### Módulos de suporte
 - **cluster_autoscaler_irsa**: cria a role necessária para o Cluster Autoscaler funcionar com IRSA.
